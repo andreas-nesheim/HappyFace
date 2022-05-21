@@ -22,10 +22,11 @@ public partial class MainPage : ContentPage
 
         using FileStream fs = File.OpenRead(photo.FullPath);
         var detectResult = await faceClient.Face.DetectWithStreamAsync(fs, returnFaceAttributes: faceAttributes);
-        foreach (var face in detectResult)
-        {
-            var attr = face.FaceAttributes;
-        }
+        var faceResult = detectResult.FirstOrDefault();
+        if (faceResult is null) return;
+        var smileScale = faceResult.FaceAttributes.Smile;
+
+        HappyScaleLabel.Text = $"You are {smileScale * 100}% happy!";
 
         //var detectResult = await faceClient.Face.DetectWithUrlAsync(url, returnFaceAttributes: faceAttributes);
         //foreach (var face in detectResult)
