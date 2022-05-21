@@ -48,4 +48,8 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.Face" Version="2.8.0-preview.2" />
+	</ItemGroup>
+
 </Project>

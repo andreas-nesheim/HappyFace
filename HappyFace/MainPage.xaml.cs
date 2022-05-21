@@ -1,9 +1,9 @@
-﻿namespace HappyFace;
+﻿using Microsoft.Azure.CognitiveServices.Vision.Face;
+
+namespace HappyFace;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
@@ -13,14 +13,14 @@ public partial class MainPage : ContentPage
 	{
 		var photo = await MediaPicker.PickPhotoAsync();
 
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		var credentials = new ApiKeyServiceClientCredentials(Constants.SubscriptionKey);
+        var faceClient = new FaceClient(credentials) { Endpoint = Constants.Endpoint };
+		var url = "https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Dad2.jpg";
+        var detectResult = await faceClient.Face.DetectWithUrlAsync(url);
+		foreach (var face in detectResult)
+        {
+			var attr = face.FaceAttributes;
+        }
 	}
 }
 
