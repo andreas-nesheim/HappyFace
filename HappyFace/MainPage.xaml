@@ -19,30 +19,25 @@
             <Label
                 FontSize="32"
                 HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Hello, World!" />
+                Text="Smile!" />
 
             <Label
                 FontSize="18"
                 HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="Welcome to .NET Multi-platform App UI" />
+                HorizontalTextAlignment="Center"
+                Text="Take a photo and see how objectively happy you are" />
 
             <Button
                 x:Name="CounterBtn"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
+                Text="Take photo 📷" />
 
             <Label
                 x:Name="HappyScaleLabel"
                 FontSize="18"
                 HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="Awaiting result..." />
+                Text="Waiting for photo..." />
 
         </VerticalStackLayout>
     </ScrollView>
