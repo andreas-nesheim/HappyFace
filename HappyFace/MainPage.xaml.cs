@@ -12,8 +12,8 @@ public partial class MainPage : ContentPage
 
     private async void OnCounterClicked(object sender, EventArgs e)
     {
-        var photo = await MediaPicker.PickPhotoAsync();
-        //var photo = await MediaPicker.CapturePhotoAsync();
+        //var photo = await MediaPicker.PickPhotoAsync();
+        var photo = await MediaPicker.CapturePhotoAsync();
 
         var credentials = new ApiKeyServiceClientCredentials(Constants.SubscriptionKey);
         var faceClient = new FaceClient(credentials) { Endpoint = Constants.Endpoint };
